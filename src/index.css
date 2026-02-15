@@ -1,0 +1,129 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+@layer base {
+  :root {
+    --background: 270 50% 5%;
+    --foreground: 45 30% 90%;
+
+    --card: 270 40% 10%;
+    --card-foreground: 45 30% 90%;
+
+    --popover: 270 40% 10%;
+    --popover-foreground: 45 30% 90%;
+
+    --primary: 45 80% 55%;
+    --primary-foreground: 270 50% 5%;
+
+    --secondary: 280 30% 20%;
+    --secondary-foreground: 45 30% 90%;
+
+    --muted: 270 20% 18%;
+    --muted-foreground: 270 10% 55%;
+
+    --accent: 280 60% 40%;
+    --accent-foreground: 45 30% 95%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 270 30% 20%;
+    --input: 270 30% 20%;
+    --ring: 45 80% 55%;
+
+    --radius: 0.75rem;
+
+    --mystic-glow: 280 80% 60%;
+    --gold: 45 80% 55%;
+    --gold-dim: 45 60% 35%;
+    --deep-purple: 270 50% 12%;
+    --star: 45 100% 70%;
+
+    --sidebar-background: 270 50% 8%;
+    --sidebar-foreground: 45 30% 90%;
+    --sidebar-primary: 45 80% 55%;
+    --sidebar-primary-foreground: 270 50% 5%;
+    --sidebar-accent: 280 30% 20%;
+    --sidebar-accent-foreground: 45 30% 90%;
+    --sidebar-border: 270 30% 20%;
+    --sidebar-ring: 45 80% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Crimson Text', serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Cinzel Decorative', cursive;
+  }
+}
+
+@layer utilities {
+  .text-glow {
+    text-shadow: 0 0 10px hsl(var(--gold) / 0.6), 0 0 30px hsl(var(--gold) / 0.3);
+  }
+
+  .box-glow {
+    box-shadow: 0 0 15px hsl(var(--mystic-glow) / 0.4), 0 0 40px hsl(var(--mystic-glow) / 0.15);
+  }
+
+  .gold-glow {
+    box-shadow: 0 0 15px hsl(var(--gold) / 0.4), 0 0 40px hsl(var(--gold) / 0.15);
+  }
+}
+
+/* Card flip animation */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.preserve-3d {
+  transform-style: preserve-3d;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
+
+/* Shake animation */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 30%, 50%, 70%, 90% { transform: translateX(-4px); }
+  20%, 40%, 60%, 80% { transform: translateX(4px); }
+}
+
+.animate-shake {
+  animation: shake 0.5s ease-in-out;
+}
+
+/* Particle float */
+@keyframes float {
+  0%, 100% { transform: translateY(0) rotate(0deg); opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { transform: translateY(-100vh) rotate(720deg); opacity: 0; }
+}
+
+/* Pulse glow */
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 15px hsl(var(--gold) / 0.3), 0 0 40px hsl(var(--mystic-glow) / 0.1); }
+  50% { box-shadow: 0 0 25px hsl(var(--gold) / 0.5), 0 0 60px hsl(var(--mystic-glow) / 0.25); }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
